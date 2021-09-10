@@ -1,0 +1,11 @@
+DROP DATABASE IF EXISTS Data_Types1;
+CREATE DATABASE Data_Types1;
+
+USE Data_Types1;
+
+CREATE TABLE Infor (
+    ID 				INT AUTO_INCREMENT 	NOT NULL PRIMARY KEY,
+    Name 			CHAR(30) 			NOT NULL,
+    Code 			CHAR(5) 			NOT NULL,
+    ModifiedDate 	DATETIME 			NOT NULL
+);
