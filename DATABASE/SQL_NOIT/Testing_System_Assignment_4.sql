@@ -106,12 +106,12 @@ SELECT
     COUNT(a.AccountID) AS 'SUM'
 FROM
     department d
-        INNER JOIN
+        LEFT JOIN
     account a ON d.DepartmentID = a.DepartmentID
-        INNER JOIN
-    position p ON a.PositionID = p.PositionID
+        CROSS JOIN
+    position p
 GROUP BY d.DepartmentName , p.PositionName
-ORDER BY COUNT(a.AccountID) DESC;
+ORDER BY d.DepartmentName DESC;
 
 # Question 12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, ...
 SELECT

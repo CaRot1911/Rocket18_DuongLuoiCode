@@ -1,4 +1,4 @@
-USE accmanager;
+USE sql_noit;
 
 # Testing_System_Assignment_3
 
