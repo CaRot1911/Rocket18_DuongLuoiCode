@@ -151,7 +151,7 @@ Sau đó in ra kết quả tạo thành công
  */
 DROP PROCEDURE IF EXISTS Success;
 DELIMITER $$
-CREATE PROCEDURE Success(IN p_fullname CHAR(30),p_email CHAR(40))
+CREATE PROCEDURE Success(IN p_fullname CHAR(30),IN p_email CHAR(40))
 BEGIN
     UPDATE account a
     SET a.DepartmentID = 10,
