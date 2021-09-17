@@ -151,7 +151,7 @@ Sau đó in ra kết quả tạo thành công
  */
 DROP PROCEDURE IF EXISTS Success;
 DELIMITER $$
-CREATE PROCEDURE Success(IN p_fullname CHAR(30),IN p_email CHAR(40))
+CREATE PROCEDURE Success(IN p_fullname CHAR(30),p_email CHAR(40))
 BEGIN
     UPDATE account a
     SET a.DepartmentID = 10,
@@ -307,31 +307,21 @@ DELIMITER $$
 CREATE PROCEDURE QuesInYears6()
 BEGIN
     SELECT MonInYear.MONTH, COUNT(q.QuestionID) AS 'Quantity'
-    FROM (SELECT 1 AS MONTH
+    FROM (SELECT MONTH(CURRENT_DATE - INTERVAL 6 MONTH) AS MONTH
           UNION
-          SELECT 2 AS MONTH
+          SELECT MONTH(CURRENT_DATE - INTERVAL 5 MONTH) AS MONTH
           UNION
-          SELECT 3 AS MONTHm
+          SELECT MONTH(CURRENT_DATE - INTERVAL 4 MONTH) AS MONTH
           UNION
-          SELECT 4 AS MONTH
+          SELECT MONTH(CURRENT_DATE - INTERVAL 3 MONTH) AS MONTH
           UNION
-          SELECT 5 AS MONTH
+          SELECT MONTH(CURRENT_DATE - INTERVAL 2 MONTH) AS MONTH
           UNION
-          SELECT 6 AS MONTH
+          SELECT MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AS MONTH
           UNION
-          SELECT 7 AS MONTH
-          UNION
-          SELECT 8 AS MONTH
-          UNION
-          SELECT 9 AS MONTH
-          UNION
-          SELECT 10 AS MONTH
-          UNION
-          SELECT 11 AS MONTH
-          UNION
-          SELECT 12 AS MONTH) AS MonInYear
+          SELECT MONTH(CURDATE()) AS MONTH
+          ) AS MonInYear
              LEFT JOIN question q ON MONTH(q.CreateDate) = MonInYear.MONTH
-    WHERE ((MONTH(CURDATE()) - MONTH) BETWEEN 1 AND 6)
     GROUP BY MonInYear.MONTH
     ORDER BY MonInYear.MONTH;
 end$$
