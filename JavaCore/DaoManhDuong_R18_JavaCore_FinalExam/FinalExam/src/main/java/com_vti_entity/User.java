@@ -1,24 +1,27 @@
-package entity;
+package com_vti_entity;
 
 public class User {
-    private String id;
+    private int id;
     private String fullName;
-    private  String email;
+    private String email;
     private String password;
 
-    public User(){}
-    public User(String id, String fullName, String email, String password) {
+
+    public User(){
+
+    }
+    public User(int id, String fullName, String email, String password) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -44,10 +47,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Id: " + getId() + "-" + "Name: " + getFullName()+"-"+"Email: "+getEmail()+"-"+"Password: "+getPassword();
     }
 }
