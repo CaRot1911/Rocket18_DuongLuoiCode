@@ -92,14 +92,14 @@ public class AccountController {
     }
 
     public void Login(String mail, String pass) throws SQLException, IOException {
-        if (isValid_Mail(mail) == false && isValid_Pass(pass) == false){
-            System.out.println("Mail OR PassWord Malformed");
-        }else{
+        if (isValid_Mail(mail) == true && isValid_Pass(pass) == true){
             if(iAccountService.Login(mail,pass) == true){
                 System.out.println("Dang nhap thanh cong");
             }else {
                 System.out.println("Email va mat khau khong ton tai");
             }
+        }else{
+            System.out.println("Mail OR PassWord Malformed");
         }
     }
 
